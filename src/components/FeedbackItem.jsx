@@ -1,10 +1,11 @@
-import React from 'react'
 
-function FeedbackItem() {
+
+function FeedbackItem({rating, content}) {
+
   return (
     <div className='card'>
-      <div className="num-display">10</div>
-      <div className="text-display">this is an example</div>
+      <div className="num-display">{rating}</div>
+      <div className="text-display">{content}</div>
     </div>
   )
 }
