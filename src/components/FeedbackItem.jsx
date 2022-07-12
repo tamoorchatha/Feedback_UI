@@ -1,13 +1,17 @@
+import Card from "../shared/Card";
+import propsTypes from "prop-types";
 
-
-function FeedbackItem({rating, content}) {
+function FeedbackItem({item}) {
 
   return (
-    <div className='card'>
-      <div className="num-display">{rating}</div>
-      <div className="text-display">{content}</div>
-    </div>
+    <Card>
+      <div className="num-display">{item.rating}</div>
+      <div className="text-display">{item.text}</div>
+    </Card>
   )
 }
 
+FeedbackItem.propsTypes = {
+  item: propsTypes.object.isRequired,
+}
 export default FeedbackItem
