@@ -3,29 +3,38 @@ import Button from "../shared/Button";
 import RatingSelect from "./RatingSelect";
 import {useState} from "react";
 
-function FeedbackForm() {
+function FeedbackForm({handleAdd}) {
 
-    const [inputText, setInputText] = useState("");
+    const [text, setText] = useState("");
     const [btnIsDisabled, setBtnIsDisabled] = useState(true);
     const [message, setMessage] = useState("");
-    const [rating, setRating] = useState(10);
+    const [rating, setRating] = useState(2);
 
 
     function handleForInput(event){
-        if(inputText === ""){
+        if(text === ""){
             setBtnIsDisabled(true);
             setMessage(null)
-        }else if(inputText !== "" && inputText.trim().length <= 10){
+        }else if(text !== "" && text.trim().length <= 10){
             setBtnIsDisabled(true);
             setMessage("review must be greater than 10 words");
         }else{
             setBtnIsDisabled(false);
             setMessage(null)
         }
-        setInputText(event.target.value)
+        setText(event.target.value)
     }
     function formOnSubmit(e){
         e.preventDefault();
+        if(text.trim().length > 10){
+            const newFeedback = {
+                text,
+                rating
+            }
+            handleAdd(newFeedback)
+            setText("")
+            setBtnIsDisabled(true)
+        }
     }
 
     
@@ -37,10 +46,10 @@ function FeedbackForm() {
                 How would you rate your service with us?
             </h2>
 
-            <RatingSelect select={(rating)=>{setRating(rating)}}/>
+            <RatingSelect select={(selected)=>{setRating(selected)}}/>
 
             <div className="input-group">
-                <input onChange={handleForInput} type="text" value={inputText} placeholder="Write a Review" />
+                <input onChange={handleForInput} type="text" value={text} placeholder="Write a Review" />
                 <Button type="submit" isDisabled={btnIsDisabled}>send</Button>
             </div>
 
