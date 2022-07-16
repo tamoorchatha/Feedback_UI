@@ -6,7 +6,9 @@ function FeedbackList({feedback, handleDelete}) {
     <div className="container">
         {feedback.map((item)=>{
             return(
+            
             <FeedbackItem key={item.id} item={item} handleDelete={handleDelete}/>
+    
             )
         })}
     </div>
