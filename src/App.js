@@ -9,6 +9,7 @@ import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
 import About from "./components/pages/About";
 import AboutLinkIcon from "./components/AboutIconLink";
+import Post from "./components/Post";
 
 
 export default function App() {
@@ -47,6 +48,10 @@ export default function App() {
         </Route>
 
       <Route path="/about" element={<About />}></Route>
+
+      <Route path="/post/:id" element={<Post />}></Route>
+
+
       </Routes>
 
       <AboutLinkIcon />
