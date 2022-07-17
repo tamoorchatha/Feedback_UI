@@ -5,7 +5,7 @@ import {useState, useContext, useEffect} from "react";
 import FeedbackContext from "./context/FeedbackContext";
 
 function FeedbackForm() {
-    const {handleAddItem, editFeedback} = useContext(FeedbackContext)
+    const {handleAddItem, editFeedback, updateFeedback} = useContext(FeedbackContext)
 
     useEffect(()=>{
         if(editFeedback.edit===true){
@@ -41,7 +41,11 @@ function FeedbackForm() {
                 text,
                 rating
             }
-            handleAddItem(newFeedback)
+            if(editFeedback.edit===true){
+                updateFeedback(editFeedback.item.id, newFeedback)
+            }else{
+                handleAddItem(newFeedback)
+            }
             setText("")
             setBtnIsDisabled(true)
         }
