@@ -18,7 +18,7 @@ function FeedbackForm() {
     const [text, setText] = useState("");
     const [btnIsDisabled, setBtnIsDisabled] = useState(true);
     const [message, setMessage] = useState("");
-    const [rating, setRating] = useState(2);
+    const [rating, setRating] = useState(5);
 
 
     function handleForInput(event){
