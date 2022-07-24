@@ -1,0 +1,19 @@
+{
+    "feedback": [
+        {
+            "id": 1,
+            "text": "this is the data from db.json through context api",
+            "rating": "9"
+        },
+        {
+            "id": 2,
+            "text": "this is the data nmbr 2 from db.json through context api",
+            "rating": "8"
+        },
+        {
+            "id": 3,
+            "text": "this is the data nmbr 3 from db.json through context api",
+            "rating": "10"
+        }
+    ]
+}
