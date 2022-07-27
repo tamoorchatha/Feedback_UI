@@ -20,6 +20,20 @@ function RatingSelect({select}) {
 
   return (
     <ul className="rating">
+        {/* {Array.from({length: 10}, (_, i)=>{
+            <li>
+                <input type="radio" 
+                name="rating"
+                id={`num${i+1}`}
+                value={i + 1}
+                onChange={handleChange}
+                checked={selected === i +1}
+                />
+                <label htmlFor={`num${i+1}`}>{i+1}</label>
+            </li>
+        })} */}
+
+
         <li>
             <input type="radio" name="rating" id="num1" value="1" onChange={handleChange} checked={selected=== 1} />
             <label htmlFor="num1">1</label>
